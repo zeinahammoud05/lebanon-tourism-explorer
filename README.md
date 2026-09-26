@@ -2,7 +2,7 @@
 
 A single-page Streamlit assignment exploring tourism establishments in Lebanese towns. It rebuilds two charts from the supplied Plotly assignment as interactive Plotly figures.
 
-Public Streamlit app: **[Insert public URL after deployment]**
+Public Streamlit app: (https://lebanon-tourism-explorer-uyesa7vyeyr4z4qemfbqxy.streamlit.app/)
 
 ## Visualizations and linked interactions
 
