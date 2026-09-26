@@ -48,50 +48,11 @@ python -m streamlit run app.py
 
 Keep `app.py`, `requirements.txt`, and the CSV together. The CSV path is resolved relative to the app, so launch location does not affect loading.
 
-## Reproduce in Google Colab
+## Option 2: Reproduce in Google Colab
 
 Upload `Colab_Workflow.ipynb` into Google Colab and execute its six code cells in order:
 
 1. Install the pinned dependencies.
 2. Upload the original CSV (names with `(1)` are accepted), inspect it, and save the canonical filename.
-3. Write the complete `app.py`.
-4. Write `requirements.txt`, `README.md`, and `.gitignore`.
-5. Compile the app, check the data and files, and exercise linked filters with Streamlit AppTest. Download the GitHub-ready ZIP when prompted.
-6. Start Streamlit with `python -m streamlit run app.py` through the runtime's Python executable and open a Cloudflare Quick Tunnel. The cell prints a clickable temporary URL. Keep the runtime running.
+3. A Streamlit dashboard is the output of cell 6.
 
-The temporary URL is for testing; it is not the permanent submission link. The Colab tunnel requires outbound network access and downloads Cloudflare's official Linux binary. This workflow was prepared and its Python source validated locally; an actual Google Colab runtime and external tunnel still need your live test.
-
-## Push to GitHub
-
-Create an empty repository on GitHub. Upload these files to its root using **Add file → Upload files**, or run the commands below in this folder (replace the example URL):
-
-```bash
-git init
-git add app.py requirements.txt lebanon_tourism_data.csv README.md .gitignore verify_app.py
-git commit -m "Add Lebanon tourism Streamlit assignment"
-git branch -M main
-git remote add origin https://github.com/YOUR-USERNAME/lebanon-tourism-explorer.git
-git push -u origin main
-```
-
-You may also upload `Colab_Workflow.ipynb` for reproducibility. No repository has been created or pushed automatically. Keep the submission report outside the public repository unless your instructor requests it.
-
-## Deploy to Streamlit Community Cloud
-
-Sign in at [Streamlit Community Cloud](https://share.streamlit.io/), connect GitHub, and choose **Create app**. Select your repository, `main` branch, and `app.py` as the main file. Under advanced settings select Python 3.11, then deploy. Dependencies are read from `requirements.txt`. Copy the actual public URL into this README and the Moodle report after deployment, test both filters, and capture the deployed page.
-
-References: [Streamlit deployment guide](https://docs.streamlit.io/deploy/streamlit-community-cloud/deploy-your-app/deploy), [file organization](https://docs.streamlit.io/deploy/streamlit-community-cloud/deploy-your-app/file-organization), [Cloudflare Quick Tunnels](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/do-more-with-tunnels/trycloudflare/).
-
-## Verification
-
-```bash
-python verify_app.py
-```
-
-This checks compilation, data integrity, default charts, dependent district options, district filtering, removal of stale selections, empty selections, radar trace updates, and stable normalization. The original delivered project also includes `Verification.md` with local development results.
-
-Manual demonstration: select Mount Lebanon, inspect its available districts, choose Baabda, then clear districts. Next select North and compare the radar. Finally clear all governorates and confirm the guidance message.
-
-## Submission and AI disclosure
-
-Use the separate `Moodle_Report.txt` as paste-ready report text. Fill in your name, real links, screenshot, and only the personal review/testing actions you actually complete. Codex/ChatGPT assisted with code, charts, filters, testing, troubleshooting, and documentation. No course AI-policy document was supplied; adapt the disclosure to your instructor's requirements.
